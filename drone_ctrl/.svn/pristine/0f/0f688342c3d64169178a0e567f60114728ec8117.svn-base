@@ -1,0 +1,18 @@
+% Measurement from esc,motor,propeller test
+% file created 2020-09-27 17:07:31.669849
+% 1: esc value (motor 1) 0=1ms, 1024 = 2ms
+% 2: PWM frequency (50Hz to 500 Hz)
+% 3: rps (motor 1) rotations per second)
+% 4: Motor voltage (volt)
+% 5: total current (amps)
+% 6: trust force (gram force)
+% 7: CCV (rotation direction)
+% 8: Temperature (deg C)
+100 400 9.6 15 0.1 38 0
+200 400 8.4 15 1.2 226 0
+300 400 32 15 3.6 465 0
+350 400 24 15 5.3 588 0
+400 400 41 15 7.6 690 0
+450 400 40 15 10 790 0
+500 400 42 15 12.6 850 0
+550 400 20 15 15 910 0

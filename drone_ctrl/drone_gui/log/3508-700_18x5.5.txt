@@ -1,0 +1,22 @@
+% Measurement from esc,motor,propeller test
+% file created 2020-10-04 17:40:42.147504
+% 1: esc value (motor 1) 0=1ms, 1024 = 2ms
+% 2: rps (motor 1) a rotations per second)
+% 3: rps (motor 1) b rotations per second)
+% 4: Motor voltage (volt)
+% 5: total current (amps)
+% 6: trust force (gram force)
+% 7: CCV (rotation direction)
+% 8: Temperature motor (deg C)
+% 9: Temperature ESC (deg C)
+100 5.95 5.95 11.3 0.2 12 0 24.7 28.3
+200 16.19 16.18 11.2 0.8 112 0 24.7 28.2
+300 24.77 24.76 11.2 2.2 270 0 24.7 28.8
+400 31.39 31.42 11.0 4.7 440 0 23.9 29.5
+500 36.94 36.98 11.2 9.0 640 0 25.1 30.0
+550 38.70 38.70 11.3 10.5 700 0 25.8 31.4
+600 40.72 40.56 11.0 12.5 770 0 28.4 32.4
+650 41.95 42.14 10.7 14.6 840 0 29.1 35.4
+700 43.73 43.73 11.1 18.5 890 0 33.1 37.1
+750 44.79 44.83 10.8 20.2 960 0 35.0 37.9
+800 45.53 45.56 11.8 22.3 1000 0 39.6 39.0

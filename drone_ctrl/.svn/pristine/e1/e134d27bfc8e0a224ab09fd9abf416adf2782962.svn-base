@@ -1,0 +1,67 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+#/***************************************************************************
+ #*   Copyright (C) 2020 by DTU                             *
+ #*   jca@elektro.dtu.dk                                                    *
+ #*
+ #*   not used
+ #*
+ #*   This program is free software; you can redistribute it and/or modify  *
+ #*   it under the terms of the GNU General Public License as published by  *
+ #*   the Free Software Foundation; either version 2 of the License, or     *
+ #*   (at your option) any later version.                                   *
+ #*                                                                         *
+ #*   This program is distributed in the hope that it will be useful,       *
+ #*   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ #*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ #*   GNU General Public License for more details.                          *
+ #*                                                                         *
+ #*   You should have received a copy of the GNU General Public License     *
+ #*   along with this program; if not, write to the                         *
+ #*   Free Software Foundation, Inc.,                                       *
+ #*   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ #***************************************************************************/
+
+import sys 
+#import os
+import numpy as np
+import time
+#from time import sleep
+#import ConfigParser
+import timeit
+from PyQt5 import QtWidgets, QtCore
+
+
+class UControl(object):
+  # class variables
+  parent = []
+  ui = []
+  main = []
+
+  # methods / functions
+  def __init__(self, parent, ui):
+    self.parent = parent
+    self.ui = ui
+    self.main = self.parent.main
+
+  def init(self):
+    pass
+
+  def timerUpdate(self, timerCnt):
+    if timerCnt % 10 == 0:
+      pass
+    if self.ui.tabWidget.currentIndex() == self.ui.tabWidget.indexOf(self.ui.tab_control):
+      pass
+    pass 
+  
+  
+  def decode(self, gg):
+    isOK = True
+    if gg[0] == "control??":
+      self.main.message("# @todo control_2")
+      print("# unhandled control_2")
+    else:
+      isOK = False
+    return isOK
+

@@ -1,0 +1,165 @@
+# Result of drone configuration
+# from mobotware/drone_ctrl/trunk/doc/Matlab/drone_2x2.m
+# simulink model name drone_sim.slx
+# date 17-Sep-2021
+#
+[base]
+# NB! all motor actuator output are
+#     relative to this battery voltage, and
+#     should be scaled relative to this
+batteryVoltage 11.1
+# Mass in kg
+batteryMass 0.5
+# Drone mass exclusive of battery (kg)
+droneMass 1.014
+#
+[motor]
+motor 3508-700KV
+resistance 0.083
+kv 700
+# mass in kg
+mass 0.102
+motorCount 6
+# 2x2 configuration
+# first motor - front right, counting clockwise
+# arm length from center to motor axle
+armLength 0.37
+#
+[propeller]
+# radius in meter (base for calculation)
+radius 0.17145
+# mass in kg (base for calculation)
+mass 0.017
+#
+# limits
+[limits]
+# max roll and tilt angle limit (deg)
+rollLimit 10
+# minimum motor voltage (at minimum RPM)
+minMotorVolt 1
+#
+#
+# Drone model data
+[model]
+# drag proportional to rotation (rad/s) power 4 (unit Nm s^4)
+dragKonstant 1.5e-09
+# trust proportional to rotation (rad/s) squared (unit N s^2)
+trustKonstant 2.7e-05
+# hover in RPM
+hoverRPM 3336.56
+# hover current (A)
+hoverCurrent 4.69031
+# hover voltage (V)
+hoverVoltage 5.15581
+#
+#
+# Height velocity controller
+[height_vel_ctrl]
+# system transfer function (matlab style)
+num 0 0 0 4.25405 167.93 2485.91 16355.4 40352.1
+den 1 59.3165 1466.02 19324.1 143279 566580 933532 -0.00122158
+# crossover frequency (rad/s)
+crossover 4.98729 (4.98746)
+kp 61.3262
+# Has I-term
+tau_i 0.601509
+Ni 3
+# Has Lead-term
+tau_d 0.448338
+alpha 0.2
+# phase margin (deg)
+gamma_m 59.9947 (60)
+#
+#
+# height controller
+[height_1_ctrl]
+# system transfer function (matlab style)
+num 0 0 0 26.7843 841.901 8878.99 32141.8 7620.5 449.427
+den 1 41.0696 631.996 5658.24 27727.7 33869.8 7686.64 446.499 0
+# crossover frequency (rad/s)
+crossover 3.75589 (3.75589)
+kp 3.18278
+# Has Lead-term
+tau_d 0.68745
+alpha 0.15
+# phase margin (deg)
+gamma_m 74.9758 (75)
+#
+#
+# Roll velocity controller
+[rollVel]
+# system transfer function (matlab style)
+num 0 0 142.389
+den 1 9.83623 -4.81025e-08
+# crossover frequency (rad/s)
+crossover 9.66713 (9.66791)
+kp 0.66217
+# Has Lead-term
+tau_d 0.146279
+alpha 0.5
+# phase margin (deg)
+gamma_m 64.968 (65)
+#
+#
+# Roll angle controller
+[roll]
+# system transfer function (matlab style)
+num 0 0 0 94.5811 1293.16
+den 1 23.5428 324.114 1293.16 -1.51802e-09
+# crossover frequency (rad/s)
+crossover 6.7273 (6.7283)
+kp 4.41129
+# Has Lead-term
+tau_d 0.297252
+alpha 0.25
+# phase margin (deg)
+gamma_m 69.989 (70)
+#
+#
+# Pitch velocity controller
+[pitchVel]
+# system transfer function (matlab style)
+num 0 0 0 417.075
+den 1 13.195 32.8722 -1.61596e-07
+# crossover frequency (rad/s)
+crossover 2.1665 (2.16659)
+kp 0.13188
+# Has Lead-term
+tau_d 0.729781
+alpha 0.4
+# phase margin (deg)
+gamma_m 69.9647 (70)
+#
+#
+# Pitch angle controller
+[pitch]
+# system transfer function (matlab style)
+num 0 0 0 16.5012 111.178 187.213
+den 1 16.6293 78.1323 250.218 188.426 -2.36873e-14
+# crossover frequency (rad/s)
+crossover 3.87904 (3.88079)
+kp 3.03256
+# Has Lead-term
+tau_d 0.576189
+alpha 0.2
+# phase margin (deg)
+gamma_m 49.8709 (50)
+#
+#
+# Yaw angle velocity controller
+[yawVel]
+# system transfer function (matlab style)
+num 0 0 17.7492
+den 1 13.3416 33.361
+# crossover frequency (rad/s)
+crossover 12.5859 (12.586)
+kp 6.21215
+# Has I-term
+tau_i 0.278087
+Ni 3.5
+# Has Lead-term
+tau_d 0.145061
+alpha 0.3
+# phase margin (deg)
+gamma_m 69.9591 (70)
+#
