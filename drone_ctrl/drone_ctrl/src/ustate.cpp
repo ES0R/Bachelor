@@ -88,7 +88,7 @@ void UState::tick()
         else
         {
           if (msgCnt < 5)
-            command->usb_send_str("message no Arm (batt or RC or trust)\n");
+            command->usb_send_str("message no Arm (batt or RC or trust. Lortet virker)\n");
           msgCnt++;
         }
         tryArm = false;

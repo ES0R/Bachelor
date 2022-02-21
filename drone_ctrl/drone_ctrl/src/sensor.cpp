@@ -199,7 +199,7 @@ void USensor::adcTick()
       rpsMax[i] = adcValue[i]*minMaxFilt;
     }
     batteryVoltagef = 0.0;
-    temp1f = float(adcValue[2]) *3.3 / 4096.0 * 100.0;
+    temp1f = float(adcValue[2]);// *3.3 / 4096.0 * 100.0;
     temp2f = temp1f;
   }
   else if (adcTickCnt > 1)
