@@ -215,6 +215,7 @@ void UEsc::escTick()
 { // speed limit on esc
   const int escPin[MAX_ESC_CNT] = {PIN_ESC_01, PIN_ESC_02, PIN_ESC_03, PIN_ESC_04, PIN_ESC_05, PIN_ESC_06, PIN_ESC_07, PIN_ESC_08};
   escLimiting = false;
+  float A[8] = {1,1,1,1,1,0.61,1,1};
   for (int i = 0; i < MAX_ESC_CNT; i++)
   { // implement PWM to actuators
     if ((state->getState() >= state->Armed) or escManual[i])
@@ -264,7 +265,8 @@ void UEsc::escTick()
     // input 0..1024 gives 1ms to 2ms pulse
     // slightly more and less is allowed
     int v = (escValue[i] * msPulseCount) / 1024 + pulseCountOffset;
-    analogWrite(escPin[i], v);
+
+    analogWrite(escPin[i], v);// * A[i]);
     //       // debug
 //       if (hbTimerCnt % 100 == 0 and i == 2)
 //       {

@@ -1,4 +1,4 @@
-/home/local/Desktop/Bachelor/drone_ctrl/drone_ctrl/build/src/uesc.o: \
+/Users/WilliamRiis/Documents/DTU/Bach/Bachelor/drone_ctrl/drone_ctrl/build/src/uesc.o: \
  src/uesc.cpp src/main.h teensy3/core_pins.h teensy3/kinetis.h \
  teensy3/pins_arduino.h teensy3/usb_serial.h teensy3/usb_desc.h \
  teensy3/core_pins.h teensy3/Stream.h teensy3/Print.h teensy3/core_id.h \
@@ -13,7 +13,8 @@
  teensy3/usb_midi.h teensy3/usb_rawhid.h teensy3/usb_flightsim.h \
  teensy3/usb_mtp.h teensy3/usb_audio.h teensy3/usb_touch.h \
  teensy3/usb_undef.h teensy3/WCharacter.h teensy3/elapsedMillis.h \
- teensy3/IntervalTimer.h libraries/ADC/settings_defines.h \
+ teensy3/IntervalTimer.h teensy3/CrashReport.h teensy3/Printable.h \
+ teensy3/WString.h libraries/ADC/settings_defines.h \
  libraries/ADC/atomic.h src/pins.h src/uesc.h src/command.h \
  src/eeconfig.h src/ustate.h src/usbus.h src/SBUS.h \
  teensy3/elapsedMillis.h src/logger.h

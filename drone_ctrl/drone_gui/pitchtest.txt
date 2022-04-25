@@ -1,0 +1,8 @@
+% data format:
+% 1   Time (ms)
+% 2,3 (a,b) calculated rotations per second (2 sensors)
+% 4   ESC value (0..1024 => 1-2ms) (motor 1)
+% 5   Battery voltage (V)
+% 6   Battery current (A)
+% 7   Motor temp (deg C)
+% 8   ESC temp (deg C)

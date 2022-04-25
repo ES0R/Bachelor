@@ -52,7 +52,7 @@ CPPFLAGS = -Wall -g0 -O3 -mcpu=cortex-m4 -mthumb -nostdlib -MMD $(OPTIONS) \
       -DF_CPU=$(TEENSY_CORE_SPEED) -Isrc -I$(COREPATH) -I Snooze/
 
 # compiler options for C++ only
-CXXFLAGS = -std=gnu++0x -g0 -O3 -felide-constructors -fno-exceptions -fno-rtti -Wno-c++14-compat
+CXXFLAGS = -std=gnu++17 -g0 -O3 -felide-constructors -fno-exceptions -fno-rtti -Wno-c++14-compat
 
 # compiler options for C only
 CFLAGS =

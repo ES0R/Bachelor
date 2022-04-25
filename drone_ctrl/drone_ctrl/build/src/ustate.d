@@ -1,4 +1,4 @@
-/home/local/Desktop/Bachelor/drone_ctrl/drone_ctrl/build/src/ustate.o: \
+/Users/WilliamRiis/Documents/DTU/Bach/Bachelor/drone_ctrl/drone_ctrl/build/src/ustate.o: \
  src/ustate.cpp src/control.h src/main.h teensy3/core_pins.h \
  teensy3/kinetis.h teensy3/pins_arduino.h teensy3/usb_serial.h \
  teensy3/usb_desc.h teensy3/core_pins.h teensy3/Stream.h teensy3/Print.h \
@@ -13,13 +13,14 @@
  teensy3/usb_joystick.h teensy3/usb_midi.h teensy3/usb_rawhid.h \
  teensy3/usb_flightsim.h teensy3/usb_mtp.h teensy3/usb_audio.h \
  teensy3/usb_touch.h teensy3/usb_undef.h teensy3/WCharacter.h \
- teensy3/elapsedMillis.h teensy3/IntervalTimer.h \
- libraries/ADC/settings_defines.h libraries/ADC/atomic.h src/pins.h \
- src/controlbase.h teensy3/WProgram.h src/logger.h src/ustate.h \
- src/usbus.h src/command.h src/SBUS.h teensy3/elapsedMillis.h src/uesc.h \
- src/upropshield.h src/upropsense.h libraries/Wire/Wire.h \
- libraries/Wire/WireKinetis.h libraries/EEPROM/EEPROM.h \
- teensy3/avr/eeprom.h teensy3/avr_functions.h teensy3/avr/io.h \
- teensy3/avr/../avr_emulation.h src/MadgwickAHRS.h src/umat.h \
- src/sensor.h src/uled.h libraries/SPI/SPI.h teensy3/DMAChannel.h \
- teensy3/EventResponder.h src/eeconfig.h src/mixer.h src/uheight.h
+ teensy3/elapsedMillis.h teensy3/IntervalTimer.h teensy3/CrashReport.h \
+ teensy3/Printable.h teensy3/WString.h libraries/ADC/settings_defines.h \
+ libraries/ADC/atomic.h src/pins.h src/controlbase.h teensy3/WProgram.h \
+ src/logger.h src/ustate.h src/usbus.h src/command.h src/SBUS.h \
+ teensy3/elapsedMillis.h src/uesc.h src/upropshield.h src/upropsense.h \
+ libraries/Wire/Wire.h libraries/Wire/WireKinetis.h \
+ libraries/EEPROM/EEPROM.h teensy3/avr/eeprom.h teensy3/avr_functions.h \
+ teensy3/avr/io.h teensy3/avr/../avr_emulation.h src/MadgwickAHRS.h \
+ src/umat.h src/sensor.h src/uled.h libraries/SPI/SPI.h \
+ teensy3/DMAChannel.h teensy3/EventResponder.h src/eeconfig.h src/mixer.h \
+ src/uheight.h

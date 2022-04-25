@@ -8,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtGui import QKeySequence
 
 class Ui_UGui(object):
     def setupUi(self, UGui):
@@ -4522,6 +4522,7 @@ class Ui_UGui(object):
         self.actionDebug = QtWidgets.QAction(UGui)
         self.actionDebug.setCheckable(True)
         self.actionDebug.setChecked(True)
+
         self.actionDebug.setObjectName("actionDebug")
         self.actionLogging = QtWidgets.QAction(UGui)
         self.actionLogging.setCheckable(True)
@@ -4554,6 +4555,7 @@ class Ui_UGui(object):
         self.actionRC.setObjectName("actionRC")
         self.actionShow_all = QtWidgets.QAction(UGui)
         self.actionShow_all.setObjectName("actionShow_all")
+
         self.actionHide_most = QtWidgets.QAction(UGui)
         self.actionHide_most.setObjectName("actionHide_most")
         self.actionSave_to_ini_file = QtWidgets.QAction(UGui)
@@ -4656,8 +4658,9 @@ class Ui_UGui(object):
         self.checkBox_connect.setToolTip(_translate("UGui", "<html><head/><body><p>Direct USB connection to Teensy</p></body></html>"))
         self.checkBox_connect.setText(_translate("UGui", "USB connect "))
         self.lineEdit_connect_wifi.setToolTip(_translate("UGui", "<html><head/><body><p>IP and port number, e.g.:<br/><span style=\" color:#990000;\">192.168.1.22:2401</span>   or<br/><span style=\" color:#990000;\">dronectrl.local:24001</span>    or just<br/><span style=\" color:#990000;\">192.168.1.22</span>     as port 24001 is default</p></body></html>"))
-        self.lineEdit_connect_wifi.setText(_translate("UGui", "10.59.9.131"))
+        self.lineEdit_connect_wifi.setText(_translate("UGui", "192.168.43.220"))
         self.checkBox_connect_wifi.setText(_translate("UGui", "Net connect"))
+        self.checkBox_connect_wifi.setChecked(True)
         self.label_main_state.setText(_translate("UGui", "<html><head/><body><p>State:<span style=\" font-size:14pt;\"> init</span></p></body></html>"))
         self.label_dronename.setToolTip(_translate("UGui", "<html><head/><body><p>Set drone name from debug:</p><p>name newName</p><p>or if through bridge:</p><p>robot name newName</p><p>and then \'save to flash\'</p></body></html>"))
         self.label_dronename.setText(_translate("UGui", "name"))
@@ -5084,3 +5087,5 @@ class Ui_UGui(object):
         self.actionManual_2.setText(_translate("UGui", "Manual"))
         self.actionLoad_from_ini_file.setText(_translate("UGui", "&Load from ini file"))
         self.actionMixer.setText(_translate("UGui", "Mixer"))
+
+        self.actionShow_all.setShortcut("Ctrl+L")

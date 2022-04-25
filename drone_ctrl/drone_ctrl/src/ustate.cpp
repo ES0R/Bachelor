@@ -88,7 +88,7 @@ void UState::tick()
         else
         {
           if (msgCnt < 5)
-            command->usb_send_str("message no Arm (batt or RC or trust. Lortet virker)\n");
+            command->usb_send_str("message no Arm (batt or RC or trust)\n");
           msgCnt++;
         }
         tryArm = false;
@@ -97,7 +97,7 @@ void UState::tick()
     
     case Armed:
       // check remote control is lost
-      if (lowBattery or (rc->isRcLost() and not bypassRC))
+      if (/*lowBattery or */(rc->isRcLost() and not bypassRC))
       {
         setFailed();
         leds->stateSet(armState);
@@ -128,87 +128,87 @@ void UState::tick()
       command->usb_send_str("# UState:: unknown arm state\n");
       break;
   }
-  switch(flightState)
-  {
-    case OnGround:
-      if (mixer->uHeight > 200 and armState == Armed)
-      { // trust is high (starting)
-        if (startingCounter > 200)
-        {
-          flightState = Starting;
-          startingCounter = 1000;
-//           command->usb_send_str("message starting\n");
-        }
-        startingCounter++;
-      }
-      else
-        startingCounter = 0;
-      break;
-    case Starting:
-      // test if it is likely that we try to fly
-      // trust test
-      if (mixer->uHeight < 300)
-      {
-        flightState = OnGround;
-        command->usb_send_str("message start abort\n");
-      }
-      // battery test
-      if (armState == Armed)
-      { // test movement, NB height may be wrong
-        if(/*hgt->height > 0.05 and */ hgt->heightVelocity > 0.15 and sensor->batteryVoltage > 10.0)
-          startingCounter += 10;
-        else
-          startingCounter--;
-        // takes some time to get started
-        if (startingCounter <= 0)
-        {
-          flightState = OnGround;
-//           command->usb_send_str("message starting aborted\n");
-        }
-        else if (startingCounter > 4000 or hgt->heightVelocity >= 0.7)
-        {
-          flightState = InFlight;
-          command->usb_send_str("message to in flight\n");
-        }
-      }
-      else
-      {
-        flightState = OnGround;
-//         command->usb_send_str("message grounded\n");
-      }
-      break;
-    case InFlight:
-      if(hgt->height < 0.5 and hgt->heightVelocity < -0.1)
-        startingCounter++;
-      else
-        startingCounter--;
-      // takes some time to trust
-      if (startingCounter <= 0)
-        startingCounter = 0;
-      else if (startingCounter > 1000)
-      {
-        flightState = Landing;
-        command->usb_send_str("message landing\n");
-      }
-      // emergency landing
-      break;
-    case Landing:
-      // we are in an auto landing condition
-      if (landingCounter == 1)
-        command->usb_send_str("message *** auto landing ***\n");
-      landingCounter++;
-      // landing time is 2 seconds
-      if (landingCounter > int(landTime/SAMPLETIME))
-      { // assume landed - or hanging in net/tree
-        flightState = OnGround;
-        startingCounter = 0;
-        command->usb_send_str("message landed\n");
-      }
-      break;
-    default:
-      command->usb_send_str("# UState:: unknown flight state\n");
-      break;      
-  }
+//  switch(flightState)
+//  {
+//    case OnGround:
+//      if (mixer->uHeight > 200 and armState == Armed)
+//      { // trust is high (starting)
+//        if (startingCounter > 200)
+//        {
+//          flightState = Starting;
+//          startingCounter = 1000;
+////           command->usb_send_str("message starting\n");
+//        }
+//        startingCounter++;
+//      }
+//      else
+//        startingCounter = 0;
+//      break;
+//    case Starting:
+//      // test if it is likely that we try to fly
+//      // trust test
+//      if (mixer->uHeight < 300)
+//      {
+//        flightState = OnGround;
+//        command->usb_send_str("message start abort\n");
+//      }
+//      // battery test
+//      if (armState == Armed)
+//      { // test movement, NB height may be wrong
+//        if(/*hgt->height > 0.05 and */ hgt->heightVelocity > 0.15 and sensor->batteryVoltage > 10.0)
+//          startingCounter += 10;
+//        else
+//          startingCounter--;
+//        // takes some time to get started
+//        if (startingCounter <= 0)
+//        {
+//          flightState = OnGround;
+////           command->usb_send_str("message starting aborted\n");
+//        }
+//        else if (startingCounter > 4000 or hgt->heightVelocity >= 0.7)
+//        {
+//          flightState = InFlight;
+//          command->usb_send_str("message to in flight\n");
+//        }
+//      }
+//      else
+//      {
+//        flightState = OnGround;
+////         command->usb_send_str("message grounded\n");
+//      }
+//      break;
+//    case InFlight:
+//      if(hgt->height < 0.5 and hgt->heightVelocity < -0.1)
+//        startingCounter++;
+//      else
+//        startingCounter--;
+//      // takes some time to trust
+//      if (startingCounter <= 0)
+//        startingCounter = 0;
+//      else if (startingCounter > 1000)
+//      {
+//        flightState = Landing;
+//        command->usb_send_str("message landing\n");
+//      }
+//      // emergency landing
+//      break;
+//    case Landing:
+//      // we are in an auto landing condition
+//      if (landingCounter == 1)
+//        command->usb_send_str("message *** auto landing ***\n");
+//      landingCounter++;
+//      // landing time is 2 seconds
+//      if (landingCounter > int(landTime/SAMPLETIME))
+//      { // assume landed - or hanging in net/tree
+//        flightState = OnGround;
+//        startingCounter = 0;
+//        command->usb_send_str("message landed\n");
+//      }
+//      break;
+//    default:
+//      command->usb_send_str("# UState:: unknown flight state\n");
+//      break;      
+//  }
 }
 
 void UState::setArmed(bool value)
@@ -216,7 +216,7 @@ void UState::setArmed(bool value)
   if (value)
   {
     armState = Armed;
-    command->usb_send_str("message Armed\n");
+    command->usb_send_str("message Armed! \n");
     // on-board LED
     digitalWriteFast(PIN_LED_ARMED, LED_ON);
   }

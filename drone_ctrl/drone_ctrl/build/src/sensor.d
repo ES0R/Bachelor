@@ -1,4 +1,4 @@
-/home/local/Desktop/Bachelor/drone_ctrl/drone_ctrl/build/src/sensor.o: \
+/Users/WilliamRiis/Documents/DTU/Bach/Bachelor/drone_ctrl/drone_ctrl/build/src/sensor.o: \
  src/sensor.cpp libraries/ADC/ADC.h libraries/ADC/ADC_Module.h \
  teensy3/Arduino.h teensy3/WProgram.h teensy3/avr/pgmspace.h \
  teensy3/avr/interrupt.h teensy3/avr_functions.h teensy3/wiring.h \
@@ -12,7 +12,8 @@
  teensy3/usb_midi.h teensy3/usb_rawhid.h teensy3/usb_flightsim.h \
  teensy3/usb_mtp.h teensy3/usb_audio.h teensy3/usb_touch.h \
  teensy3/usb_undef.h teensy3/WCharacter.h teensy3/elapsedMillis.h \
- teensy3/IntervalTimer.h libraries/ADC/settings_defines.h \
+ teensy3/IntervalTimer.h teensy3/CrashReport.h teensy3/Printable.h \
+ teensy3/WString.h libraries/ADC/settings_defines.h \
  libraries/ADC/atomic.h src/../teensy3/kinetis.h \
  src/../libraries/ADC/ADC.h src/../teensy3/core_pins.h src/pins.h \
  src/sensor.h src/main.h teensy3/core_pins.h teensy3/usb_serial.h \

@@ -49,8 +49,8 @@ void UMixer::setup()
       for (int i = 0; i < esc->MAX_ESC_CNT; i++)
         esc->idleValue[i] = 0;
       // except two axes use servo with center  is neutral
-      esc->idleValue[4] = 600; // is prop tilt servo 1 - mid position ~1.5ms
-      esc->idleValue[5] = 500; // is prop tilt servo 2
+      esc->idleValue[4] = 512; // is prop tilt servo 1 - mid position ~1.5ms
+      esc->idleValue[5] = 512; // is prop tilt servo 2
       break;
     default:
       command->usb_send_str("#unknown drone configuration 2x2, 4+, 4x, 6+, 6x, 8+ or 8x is OK\n");
@@ -236,8 +236,9 @@ void UMixer::tick()
       esc->escRef[1] = uh - uRoll + esc->idleValue[1]; // not used by 2x1
       esc->escRef[2] = uh + uRoll + esc->idleValue[2];
       esc->escRef[3] = uh + uRoll + esc->idleValue[3]; // not used by 2x1
-      esc->escRef[4] = -uPitch + uYaw  + esc->idleValue[4];
-      esc->escRef[5] =  uPitch + uYaw  + esc->idleValue[5];
+      esc->escRef[4] = ( uPitch - uYaw  + esc->idleValue[4])* 0.61; //0.61 accounting for different servos (199dg / 121dg)
+      esc->escRef[5] = (-uPitch - uYaw  + esc->idleValue[5]); 
+
       break;
     break;
     default:
